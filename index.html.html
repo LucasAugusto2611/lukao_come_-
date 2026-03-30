@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lukão Come?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .container {
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sim { background: #4CAF50; }
+    .nao { background: #f44336; }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #imagem {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Você possui aranha? 🕷️</h1>
+    <button class="sim" onclick="responder(true)">Sim</button>
+    <button class="nao" onclick="responder(false)">Não</button>
+
+    <div id="resultado"></div>
+    <img id="imagem" src="" alt="resultado">
+  </div>
+
+  <!-- Música de fundo -->
+  <audio id="musica" autoplay loop>
+    <source src="rap-das-aranhas.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function responder(temAranha) {
+      const resultado = document.getElementById("resultado");
+      const imagem = document.getElementById("imagem");
+
+      if (temAranha) {
+        resultado.innerText = "LUKÃO COME 😈🕷️";
+        imagem.src = "sim.jpg";
+      } else {
+        resultado.innerText = "LUKÃO NÃO COME 🙅‍♂️";
+        imagem.src = "nao.jpg";
+      }
+
+      imagem.style.display = "block";
+    }
+
+    // Forçar autoplay ao clicar
+    window.addEventListener('click', () => {
+      const musica = document.getElementById('musica');
+      musica.play();
+    });
+  </script>
+
+</body>
+</html>
